@@ -13,10 +13,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "product_brand")
 public class ProductBrand {
+
     @Id
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product productId;
+
     @Id
     @ManyToOne
     @JoinColumn(name = "brand_id")

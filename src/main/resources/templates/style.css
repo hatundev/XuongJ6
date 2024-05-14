@@ -1,0 +1,22 @@
+.total{
+    background-color: antiquewhite;
+    width: 100%;
+    padding-left: 5%;
+    padding-bottom: 20px ;
+}
+
+.total h2{
+    padding :20px 20px 0 0 ;
+}
+.main  {
+    width: 90%;
+    margin-left: 10px;
+    background-color: whitesmoke;
+    border: 1px darkgrey solid;
+    border-radius: 5px;
+    padding: 20px 20px 2% 2%;
+}
+
+.main .search{
+    margin-right: 20px;
+}
