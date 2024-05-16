@@ -2,6 +2,7 @@ package com.poly.XuongJ6.repository;
 
 import com.poly.XuongJ6.entity.ProductBrand;
 import com.poly.XuongJ6.entity.ProductBrandId;
+import com.poly.XuongJ6.model.request.NewProduct;
 import com.poly.XuongJ6.model.response.ProductBrandResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -40,4 +41,22 @@ public interface ProductBrandRepository extends JpaRepository<ProductBrand, Prod
             Delete from product_brand where product_id = ?1 and brand_id = ?2
             """, nativeQuery = true)
     void deleteProductBrand(int productId, int brandId);
+
+
+
+
+
+
+    @Modifying
+    @Transactional
+    @Query(value = """
+            INSERT
+            	INTO
+            	product-brnad (product_id,
+            	brand_id
+            VALUES ( :#{#productId},
+            :#{#product.brandId}
+            )
+            """, nativeQuery = true)
+    void addProductBrand(int productId, NewProduct product);
 }

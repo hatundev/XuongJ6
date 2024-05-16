@@ -1,7 +1,7 @@
 package com.poly.XuongJ6.model.request;
 
 public class NewProduct {
-    private String productName;
+    private String name;
     private String color;
     private Integer quantity;
     private Float sellPrice;
