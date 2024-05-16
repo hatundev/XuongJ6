@@ -1,6 +1,6 @@
 package com.poly.XuongJ6.service.Implement;
 
-import com.poly.XuongJ6.model.request.NewProduct;
+import com.poly.XuongJ6.model.request.ProductBrandRequest;
 import com.poly.XuongJ6.model.response.ProductBrandResponse;
 import com.poly.XuongJ6.repository.ProductBrandRepository;
 import com.poly.XuongJ6.service.ProductBrandService;
@@ -23,15 +23,26 @@ public class ProductBrandServiceImpl implements ProductBrandService {
     }
 
     @Override
-    public void delProductBrand(int productId, int brandId) {
-        productBrandRepository.deleteProductBrand(productId, brandId);
+    public String delProductBrand(int productId, int brandId) {
+        try {
+            productBrandRepository.deleteProductBrand(productId, brandId);
+            return "Xóa thành công";
+        }  catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "Xóa thất bại";
+        }
     }
 
     @Override
-    public void addProductBrand(NewProduct product) {
-
-        int productId = productServiceImpl.getProductId(product);
-        productBrandRepository.addProductBrand(productId, product);
+    public String addProductBrand(ProductBrandRequest product) {
+        try {
+            int productId = productServiceImpl.getProductId(product);
+            productBrandRepository.addProductBrand(productId, product);
+            return "Thêm product-brand thành công";
+        } catch (Exception e) {
+            System.out.printf(e.getMessage());
+            return "Thêm product-brand thất bại";
+        }
     }
 
 

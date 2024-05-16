@@ -19,7 +19,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

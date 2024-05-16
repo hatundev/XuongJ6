@@ -1,6 +1,6 @@
 package com.poly.XuongJ6.service.Implement;
 
-import com.poly.XuongJ6.model.request.NewProduct;
+import com.poly.XuongJ6.model.request.ProductBrandRequest;
 import com.poly.XuongJ6.repository.ProductRepository;
 import com.poly.XuongJ6.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,19 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository productRepository;
 
     @Override
-    public void addProduct(NewProduct product) {
-        productRepository.addProduct(product);
+    public String addProduct(ProductBrandRequest product) {
+        try {
+            productRepository.addProduct(product);
+            return "Thêm product thành công";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "Thêm product thất bại";
+        }
+
     }
 
     @Override
-    public Integer getProductId(NewProduct product) {
+    public Integer getProductId(ProductBrandRequest product) {
         return productRepository.findProduct(product);
     }
 }
