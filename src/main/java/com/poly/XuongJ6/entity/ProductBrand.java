@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@IdClass(ProductBrandId.class)
 @Entity
 @Table(name = "product_brand")
 public class ProductBrand {
